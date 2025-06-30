@@ -1,6 +1,5 @@
 package com.microservicio.reporte;
 
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,10 +43,11 @@ public class ReporteServiceTest{
     public void testCrearReporte_ReporteExiste(){
         int idReporte = reporte.getIdReporte();
         when(reporteRepository.existsById(idReporte)).thenReturn(true);
-
+        System.out.println("Iniciando Test");
         String resultado = reporteService.crearReporte(reporte);
-
+        System.out.println(resultado);
         assertEquals("El Reporte Ya Existe", resultado);
         verify(reporteRepository, never()).save(any(ReporteEntity.class));
+        System.out.println("Fin Del Test");
     }
 }

@@ -17,7 +17,7 @@ public class ReporteService {
 
     public String crearReporte(Reporte reporte1){
         try {
-            Boolean estado = reporteRepository.existsByDescripcion(reporte1.getDescripcion());
+            Boolean estado = reporteRepository.existsById(reporte1.getIdReporte());
             if(!estado){
                 ReporteEntity reporteNuevo = new ReporteEntity();
                 reporteNuevo.setDescripcion(reporte1.getDescripcion());
